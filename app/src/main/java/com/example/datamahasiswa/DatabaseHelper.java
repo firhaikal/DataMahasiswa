@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createUserTable="Create Table "+TABLE_NAME+"(nmr Integer PRIMARY KEY, nama TEXT, tgllahir TEXT, jk TEXT, alamat TEXT)";
+        String createUserTable="Create Table "+TABLE_NAME+"(nmr Integer PRIMARY KEY, nama TEXT NULL, tgllahir TEXT NULL, jk TEXT NULL, alamat TEXT NULL)";
+        Log.d("Data","onCreate: "+createUserTable);
         db.execSQL(createUserTable);
     }
 
@@ -42,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("jk",mahasiswaBean.getJk());
         values.put("alamat",mahasiswaBean.getAlamat());
 
+
         db.insert(TABLE_NAME, null, values);
     }
 
@@ -54,11 +57,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c=db.query(TABLE_NAME, columns, null, null, null, null, null);
 
         while (c.moveToNext()){
-            int nmr=c.getInt(1);
-            String nama=c.getString(0);
-            String tgllahir=c.getString(0);
-            String jk=c.getString(0);
-            String alamat=c.getString(0);
+            int nmr=c.getInt(0);
+            String nama=c.getString(1);
+            String tgllahir=c.getString(2);
+            String jk=c.getString(3);
+            String alamat=c.getString(4);
 
             MahasiswaBean mahasiswaBean=new MahasiswaBean();
             mahasiswaBean.setNmr(nmr);

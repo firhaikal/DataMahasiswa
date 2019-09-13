@@ -9,7 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ListDataActivity"></activity>
+        <activity
+            android:name=".InfoActivity"
+            android:label="Info" />
+        <activity
+            android:name=".DetailDataActivity"
+            android:label="Detail Data" />
+        <activity
+            android:name=".DashboardActivity"
+            android:label="Dashboard" />
+        <activity
+            android:name=".InputActivity"
+            android:label="Input Data" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Dashboard" />
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
