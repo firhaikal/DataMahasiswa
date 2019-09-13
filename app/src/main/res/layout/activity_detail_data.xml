@@ -16,8 +16,8 @@
         android:padding="30dp">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:src="@drawable/student1"/>
 
@@ -28,8 +28,7 @@
             android:text="No"
             android:textSize="16dp"/>
         <EditText
-            android:clickable="false"
-            android:id="@+id/txtNomor"
+            android:id="@+id/dtlNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
@@ -43,8 +42,7 @@
             android:text="Nama"
             android:textSize="16dp"/>
         <EditText
-            android:clickable="false"
-            android:id="@+id/txtNama"
+            android:id="@+id/dtlNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
@@ -58,8 +56,7 @@
             android:text="Tanggal Lahir"
             android:textSize="16dp"/>
         <EditText
-            android:clickable="false"
-            android:id="@+id/txtTanggalLahir"
+            android:id="@+id/dtlTtl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
@@ -73,8 +70,7 @@
             android:text="Jenis Kelamin"
             android:textSize="16dp"/>
         <EditText
-            android:clickable="false"
-            android:id="@+id/txtJenisKelamin"
+            android:id="@+id/dtlJk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
@@ -88,8 +84,7 @@
             android:text="Alamat"
             android:textSize="16dp"/>
         <EditText
-            android:clickable="false"
-            android:id="@+id/txtAlamat"
+            android:id="@+id/dtlAlamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"

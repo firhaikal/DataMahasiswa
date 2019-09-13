@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,29 +69,32 @@ public class ListDataActivity extends AppCompatActivity implements MSiswaAdapter
     }
 
     @Override
-    public void onUserAction(final MahasiswaBean mahasiswaBean) {
+    public void onUserAction(final MahasiswaBean msBean) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Pilihan").setPositiveButton("Lihat Detail", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent detailData = new Intent(context, DetailDataActivity.class);
-                        detailData.putExtra("DETAIL_INTENT", String.valueOf(mahasiswaBean));
-                        context.startActivity(detailData);
-
-                    }
-                }).setNegativeButton("Ubah Data", new DialogInterface.OnClickListener() {
+        builder.setTitle("Pilihan")
+                .setPositiveButton("Lihat Detail", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent updateData = new Intent(context,InputActivity.class);
-                updateData.putExtra("UPDATE_INTENT", String.valueOf(mahasiswaBean));
-                updateData.putExtra("UPDATE_ACTION","Update");
+                Intent detailData = new Intent(context, DetailDataActivity.class);
+                detailData.putExtra("DETAIL_INTENT", msBean);
+                context.startActivity(detailData);
+
+            }
+        })
+                .setNegativeButton("Ubah Data", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent updateData = new Intent(context, InputActivity.class);
+                updateData.putExtra("UPDATE_INTENT", msBean);
+                updateData.putExtra("UPDATE_ACTION", "Update");
                 context.startActivity(updateData);
             }
-        }).setNeutralButton("Hapus Data", new DialogInterface.OnClickListener() {
+        })
+                .setNeutralButton("Hapus Data", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 DatabaseHelper db = new DatabaseHelper(context);
-                db.delete(mahasiswaBean.getNmr());
+                db.delete(msBean.getNmr());
                 setupRV();
             }
         });

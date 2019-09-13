@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="15dp"
-    android:id="@+id/nmholder"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/nama_ms"
-        android:textSize="25dp"
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="nama"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:id="@+id/nmholder">
+            <TextView
+                android:id="@+id/nama_ms"
+                android:textSize="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="nama"/>
+    </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

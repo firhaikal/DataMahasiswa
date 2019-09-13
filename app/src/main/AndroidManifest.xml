@@ -23,9 +23,6 @@
             android:name=".InputActivity"
             android:label="Input Data" />
         <activity
-            android:name=".MainActivity"
-            android:label="Dashboard" />
-        <activity
             android:name=".SplashActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"

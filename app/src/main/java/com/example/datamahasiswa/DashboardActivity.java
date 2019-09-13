@@ -13,44 +13,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class DashboardActivity extends Fragment implements View.OnClickListener {
+public class DashboardActivity extends AppCompatActivity{
     Button btnLihat, btnInput, btnInfo;
-    Context context;
-
-    public DashboardActivity(){}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_dashboard, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dashboard);
+
+        btnLihat = findViewById(R.id.btnLihat);
+        btnInput = findViewById(R.id.btnInput);
+        btnInfo = findViewById(R.id.btnInfo);
+
+        onClickIntent(btnLihat, ListDataActivity.class);
+        onClickIntent(btnInput, InputActivity.class);
+        onClickIntent(btnInfo, InfoActivity.class);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        context=getActivity();
-        btnLihat =view.findViewById(R.id.btnLihat);
-        btnLihat.setOnClickListener(this);
-        btnInput =view.findViewById(R.id.btnInput);
-        btnInput.setOnClickListener(this);
-        btnInfo =view.findViewById(R.id.btnInfo);
-        btnInfo.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnLihat:
-                Intent lihat = new Intent(view.getContext(), ListDataActivity.class);
-                startActivity(lihat);
-                break;
-            case R.id.btnInput:
-                Intent input = new Intent(view.getContext(), InputActivity.class);
-                startActivity(input);
-                break;
-            case R.id.btnInfo:
-                Intent info = new Intent(view.getContext(), InfoActivity.class);
-                startActivity(info);
-                break;
-        }
+    public void onClickIntent(Button btn, final Class dest){
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pindah = new Intent(DashboardActivity.this,dest);
+                startActivity(pindah);
+            }
+        });
     }
 }
